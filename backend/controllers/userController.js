@@ -1,22 +1,30 @@
 const asyncHandler = require('express-async-handler')
 
+const Users = require('../models/userModel')
+
 // @desc    Get users
 // @route   GET /api/users
 // @access  Private
 const getUsers = asyncHandler(async(req,res) => {
-    res.status(200).json({message: "get users"})
+    const getAllUsers = await Users.find()
+    res.status(200).json(getAllUsers)
 })
 
 // @desc    Create users
 // @route   POST /api/users
 // @access  Private
 const createUser = asyncHandler(async(req,res) => {
-    if(!req.body.text) {
+    // req.body.<db column name>
+    if(!req.body.name) {
         res.status(400)
         throw new Error('Please add a text field')
     }
 
-    res.status(200).json({message: "created user"})
+    const userData = await Users.create({
+        text: req.body.name
+    })
+
+    res.status(200).json(userData)
 })
 
 // @desc    Update user
