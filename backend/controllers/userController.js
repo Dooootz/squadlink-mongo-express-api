@@ -23,7 +23,7 @@ const createUser = asyncHandler(async(req,res) => {
     const userData = await Users.create({
         text: req.body.name
     })
-    res.status(200).json(userData)
+    res.status(201).json(userData)
 })
 
 // @desc    Update user
