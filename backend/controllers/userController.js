@@ -23,7 +23,6 @@ const createUser = asyncHandler(async(req,res) => {
     const userData = await Users.create({
         text: req.body.name
     })
-
     res.status(200).json(userData)
 })
 
@@ -31,14 +30,33 @@ const createUser = asyncHandler(async(req,res) => {
 // @route   PUT /api/users/:id
 // @access  Private
 const updateUserById = asyncHandler(async(req,res) => {
-    res.status(200).json({message: `Updated user ${req.params.id}`})
+    const user = await Users.findById(req.params.id)
+
+    if(!user){
+        res.status(400)
+        throw new Error('User not found')
+    }
+
+    const updatedUser = await Users.findByIdAndUpdate(req.params.id, req.body, 
+        {
+            new: true,
+        })
+    res.status(200).json(updatedUser)
 })
 
 // @desc    Delete user
 // @route   DELETE /api/users
 // @access  Private
 const deleteUserById = asyncHandler(async(req,res) => {
-    res.status(200).json({message: `Deleted user ${req.params.id}`})
+    const user = await Users.findById(req.params.id)
+
+    if (!user) {
+        res.status(400)
+        throw new Error('user not found')
+    }
+
+    await user.remove()
+    res.status(200).json({id: req.params.id})
 })
 
 module.exports = {
