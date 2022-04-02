@@ -15,16 +15,39 @@ const getUsers = asyncHandler(async(req,res) => {
 // @access  Private
 const createUser = asyncHandler(async(req,res) => {
     // req.body.<db column name>
-    if(!req.body.name) {
+    if(!req.body) {
         res.status(400)
-        throw new Error('Please add a text field')
+        throw new Error('No request')
     }
 
     const userData = await Users.create({
-        text: req.body.name
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        email: req.body.email,
+        birthdate: req.body.birthdate,
+        gamertag: req.body.gamertag,
+        profileimg: req.body.profileimg,
+        status: req.body.status,
+        aboutme: req.body.aboutme
     })
     res.status(201).json(userData)
 })
+
+// @desc    Update user
+// @route   GET /api/users/:id
+// @access  Private
+const getUserById = asyncHandler(async(req,res) => {
+    const user = await Users.findById(req.params.id)
+
+    if(!user){
+        res.status(400)
+        throw new Error('User not found')
+    }
+
+    const getUserId = await Users.findById(req.params.id, req.body)
+    res.status(200).json(getUserId)
+})
+
 
 // @desc    Update user
 // @route   PUT /api/users/:id
@@ -45,7 +68,7 @@ const updateUserById = asyncHandler(async(req,res) => {
 })
 
 // @desc    Delete user
-// @route   DELETE /api/users
+// @route   DELETE /api/users/:id
 // @access  Private
 const deleteUserById = asyncHandler(async(req,res) => {
     const user = await Users.findById(req.params.id)
@@ -62,6 +85,7 @@ const deleteUserById = asyncHandler(async(req,res) => {
 module.exports = {
     getUsers,
     createUser,
+    getUserById,
     updateUserById,
     deleteUserById,
 }
