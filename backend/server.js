@@ -15,6 +15,7 @@ app.use(express.urlencoded({extended: false}))
 
 app.use('/api/users', require('./routes/userRoutes'))
 app.use('/api/userStats', require('./routes/userStatsRoutes'))
+// app.use('/api/logs', require('./routes/logs'))
 
 // override express default error handler
 app.use(errorHandler)
