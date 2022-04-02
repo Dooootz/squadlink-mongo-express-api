@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
 const userStatsSchema = mongoose.Schema(
     {
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            required: true,
+            ref: 'Users'
+        },
         // USER STATS
         mainlegend: {
             Ash: {
@@ -65,64 +70,19 @@ const userStatsSchema = mongoose.Schema(
             },
         },
         ranklevel: {
-            Bronze4: {
+            Bronze: {
                 type: Boolean
             }, 
-            Bronze3: {
+            Silver: {
                 type: Boolean
             }, 
-            Bronze2: {
+            Gold: {
                 type: Boolean
             }, 
-            Bronze1: {
+            Platinum: {
                 type: Boolean
-            }, 
-            Silver4: {
-                type: Boolean
-            }, 
-            Silver3: {
-                type: Boolean
-            }, 
-            Silver2: {
-                type: Boolean
-            }, 
-            Silver1: {
-                type: Boolean
-            }, 
-            Gold4: {
-                type: Boolean
-            }, 
-            Gold3: {
-                type: Boolean
-            }, 
-            Gold2: {
-                type: Boolean
-            }, 
-            Gold1: {
-                type: Boolean
-            }, 
-            Platinum4: {
-                type: Boolean
-            }, 
-            Platinum3: {
-                type: Boolean
-            }, 
-            Platinum2: {
-                type: Boolean
-            }, 
-            Platinum1: {
-                type: Boolean
-            }, 
-            Diamond4: {
-                type: Boolean
-            }, 
-            Diamond3: {
-                type: Boolean
-            }, 
-            Diamond2: {
-                type: Boolean
-            }, 
-            Diamond1: {
+            },
+            Diamond: {
                 type: Boolean
             }, 
             Master: {
@@ -181,9 +141,6 @@ const userStatsSchema = mongoose.Schema(
             "~2.00": {
                 type: Boolean
             }, 
-            "~2.50": {
-                type: Boolean
-            },  
             "~3.00": {
                 type: Boolean
             },  
