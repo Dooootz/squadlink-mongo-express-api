@@ -1,7 +1,8 @@
+// # WILL ADD AUTHENTICATION (PASSWORD) LATER # 
+// this db table / document could be split into 2 seperate documents 
 const userSchema = mongoose.Schema(
     {
         // USER PERSONAL INFO
-        // # WILL ADD AUTHENTICATION (PASSWORD) LATER # 
         firstname: {
             type: String,
             required: [true, 'Please enter your firstname']
@@ -33,27 +34,82 @@ const userSchema = mongoose.Schema(
         aboutme: {
             type: String,
         },
+
         // USER STATS
-        gamertag: {
-            type: String,
-            required: true 
+        mainlegend: {
+            Ash: true,
+            Bangalore: false,
+            Bloodhound: false,
+            Caustic: false,
+            Crypto: false,
+            Fuse: false,
+            Gibraltar: false,
+            Horizon: false,
+            Lifeline: false,
+            Loba: false,
+            Maggie: false,
+            Mirage: false,
+            Octane: false,
+            Pathfinder: false,
+            Rampart: false,
+            Revenant: false,
+            Seer: false,
+            Valkyrie: false,
+            Wattson: false,
+            Wraith: false,
         },
-        gamertag: {
-            type: String,
-            required: true 
+        ranklevel: {
+            Bronze4: true, 
+            Bronze3: false, 
+            Bronze2: false, 
+            Bronze1: false, 
+            Silver4: false, 
+            Silver3: false, 
+            Silver2: false, 
+            Silver1: false, 
+            Gold4: false, 
+            Gold3: false, 
+            Gold2: false, 
+            Gold1: false, 
+            Platinum4: false, 
+            Platinum3: false, 
+            Platinum2: false, 
+            Platinum1: false, 
+            Diamond4: false, 
+            Diamond3: false, 
+            Diamond2: false, 
+            Diamond1: false, 
+            Master: false, 
+            Predator: false, 
         },
-        gamertag: {
-            type: String,
-            required: true 
+        skilllevel: {
+            Beginner: true, 
+            Average: false, 
+            Experienced: false, 
+            Seasoned: false,  
         },
-        gamertag: {
-            type: String,
-            required: true 
-        },
-        gamertag: {
-            type: String,
-            required: true 
-        },
+        playstyle: {
+            Passive: true, 
+            Defensive: false, 
+            Assault: false, 
+        }, 
+        avgdamge: {
+            "~400": true, 
+            "~600": false, 
+            "~800": false, 
+            "+1000": false,  
+        }, 
+        kdratio: {
+            "~1.00": true, 
+            "~1.50": false, 
+            "~2.00": false, 
+            "~2.50": false,  
+            "~3.00": false,  
+            "~4.00": false,  
+            "+5.00": false,  
+        }
+
+
 
         
 
