@@ -4,6 +4,7 @@ const dotenv = require('dotenv').config()
 const http = require('http')
 const { errorHandler } = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db') 
+const logger = require('./config/logger')
 const port = process.env.PORT || 5000
 
 connectDB()
@@ -21,7 +22,7 @@ app.use('/api/userStats', require('./routes/userStatsRoutes'))
 // override express default error handler
 app.use(errorHandler)
 
-app.listen(port, () => console.log(`ITS ALIVE on port http://localhost:${port}`))
+app.listen(port, () => logger.error('info', `ITS ALIVE on port http://localhost:${port}`))
 
 
 
