@@ -15,13 +15,14 @@ const getUserStatsById = asyncHandler(async(req,res) => {
 // @access  Private
 const createUserStatsById = asyncHandler(async(req,res) => {
     // req.body.<db column name>
-    if(!req.body.name) {
+    if(!req.body.user) {
         res.status(400)
-        throw new Error('Please add a text field')
+        throw new Error('Please add user id')
     }
 
     const userData = await UserStats.create({
-        text: req.body.name
+        user: req.params.id,
+        mainlegend: req.body.mainlegend
     })
     res.status(201).json(userData)
 })
