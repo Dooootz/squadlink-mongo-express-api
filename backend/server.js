@@ -5,7 +5,7 @@ const http = require('http')
 const rateLimit = require('express-rate-limit')
 const { errorHandler } = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db') 
-const logger = require('./config/logger')
+
 
 
 const port = process.env.PORT || 5000
