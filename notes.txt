@@ -1,5 +1,24 @@
 // @NOTES
 
----
+UserSchema CRUD is functional 
+    >need to audit my server side validation + sanitation
+    >check over status codes & error handlers 
+    >rate limiting implementation -- 1000 requests per 24h period
+    >whitelist origins / domain lock to certain IPs
+    >logging feature -- log IP, session, username, usertype, timestamp, action || CRUD action  
 
----
+
+userStatsSchema is configured
+    >need to link user to their corresponding stats document ###
+    >
+
+
+logging feature = ADMIN ACCESS ONLY
+    >build logging document -- columns = marking criteria 
+    { IP, session, username, usertype, timestamp, action || CRUD action }
+
+    >template out log routes, controller, model 
+
+
+rate limiting & limiting requests within 24h period
+    >
