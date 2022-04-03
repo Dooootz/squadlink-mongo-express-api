@@ -1,5 +1,5 @@
 const asyncHandler = require('express-async-handler')
-
+const logger = require('../config/logger')
 const Users = require('../models/userModel')
 
 // @desc    Get users
@@ -8,6 +8,7 @@ const Users = require('../models/userModel')
 const getUsers = asyncHandler(async(req,res) => {
     const getAllUsers = await Users.find()
     res.status(200).json(getAllUsers)
+    logger.info(getAllUsers)
 })
 
 // @desc    Create users
@@ -31,6 +32,7 @@ const createUser = asyncHandler(async(req,res) => {
         aboutme: req.body.aboutme
     })
     res.status(201).json(userData)
+    logger.info(userData)
 })
 
 // @desc    Update user
