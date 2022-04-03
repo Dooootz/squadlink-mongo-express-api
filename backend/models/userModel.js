@@ -16,8 +16,8 @@ const userSchema = mongoose.Schema(
             unique: true
         },
         password: {
-            type: String,
-            required: [true, 'Please enter a password']
+            type: String
+            // required: [true, 'Please enter a password']
         },
         birthdate: {
             // change datatype prior to functionality
