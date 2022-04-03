@@ -4,16 +4,15 @@ const Users = require('../models/userModel')
 
 // @desc    Get users
 // @route   GET /api/users
-// @access  Private
 const getUsers = asyncHandler(async(req,res) => {
     const getAllUsers = await Users.find()
     res.status(200).json(getAllUsers)
+    // default logger test -- delete prior to production || once Total users > 10 
     logger.info(getAllUsers)
 })
 
 // @desc    Create users
 // @route   POST /api/users
-// @access  Private
 const createUser = asyncHandler(async(req,res) => {
     // req.body.<db column name>
     if(!req.body) {
@@ -37,7 +36,6 @@ const createUser = asyncHandler(async(req,res) => {
 
 // @desc    Update user
 // @route   GET /api/users/:id
-// @access  Private
 const getUserById = asyncHandler(async(req,res) => {
     const user = await Users.findById(req.params.id)
 
@@ -48,12 +46,13 @@ const getUserById = asyncHandler(async(req,res) => {
 
     const getUserId = await Users.findById(req.params.id, req.body)
     res.status(200).json(getUserId)
+    logger.info(userData)
+
 })
 
 
 // @desc    Update user
 // @route   PUT /api/users/:id
-// @access  Private
 const updateUserById = asyncHandler(async(req,res) => {
     const user = await Users.findById(req.params.id)
 
@@ -67,11 +66,11 @@ const updateUserById = asyncHandler(async(req,res) => {
             new: true,
         })
     res.status(200).json(updatedUser)
+    logger.info(userData)
 })
 
 // @desc    Delete user
 // @route   DELETE /api/users/:id
-// @access  Private
 const deleteUserById = asyncHandler(async(req,res) => {
     const user = await Users.findById(req.params.id)
 
@@ -82,6 +81,7 @@ const deleteUserById = asyncHandler(async(req,res) => {
 
     await user.remove()
     res.status(200).json({id: req.params.id})
+    logger.info(userData)
 })
 
 module.exports = {
