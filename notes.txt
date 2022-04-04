@@ -1,24 +1,53 @@
 // @NOTES
 
-UserSchema CRUD is functional 
-    >need to audit my server side validation + sanitation
-    >check over status codes & error handlers 
-    >rate limiting implementation -- 1000 requests per 24h period
-    >whitelist origins / domain lock to certain IPs
-    >logging feature -- log IP, session, username, usertype, timestamp, action || CRUD action  
+
+User APIS are fully functional 
+Rate limiting fully functional 
+
+Logging is partially functional -- 
+
+Need todo 
+>domain lock & whitelist origins 
+>joi validation
+
+
+
+
+
+
+
+
+=== === === === === === === === === === === === === === ===
+@@ CODE COMMENTS 
+
+denote where and explain why you instantiated the db and session objects in that location 
+
+explain the math of my rate limiting code 
+
+note where you are checking if a session pre exists, what are you doing IF it does? 
+
+explain the code structure that checks all of the GET / POST structures 
+
+write a README file that explains how to setup & confirgure the Web Service 
+
+write a test script that interacts with the web service to test all the known GEt and POST requests as a part of Unit testing 
+
+=== === === === === === === === === === === === === === ===
+
+
+
+
+
+
+
+
+
+
+
+>logging feature -- log IP, session, username, usertype, timestamp, action || CRUD action  
 
 
 userStatsSchema is configured
-    >need to link user to their corresponding stats document ###
-    >
+    couild simplify the db as single columns (don't list ALL legends or ALL attributes) -- 
+    instead, store the values in a a button & push that value to the table :: validation for this feature should be relatively easy
 
-
-logging feature = ADMIN ACCESS ONLY
-    >build logging document -- columns = marking criteria 
-    { IP, session, username, usertype, timestamp, action || CRUD action }
-
-    >template out log routes, controller, model 
-
-
-rate limiting & limiting requests within 24h period
-    >
