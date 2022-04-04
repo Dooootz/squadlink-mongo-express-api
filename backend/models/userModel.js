@@ -17,6 +17,7 @@ const userSchema = mongoose.Schema(
         },
         password: {
             type: String
+            // monogDB bug - workaround
             // required: [true, 'Please enter a password']
         },
         birthdate: {

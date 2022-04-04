@@ -2,14 +2,15 @@ const express = require('express')
 const colors = require('colors')
 const dotenv = require('dotenv').config()
 const http = require('http')
+
 const rateLimit = require('express-rate-limit')
+const {limiter, sessionLimiter } = require('./middleware/rateLimiter')
+
 const { errorHandler } = require('./middleware/errorMiddleware')
 const connectDB = require('./config/db') 
-
-
-
 const port = process.env.PORT || 5000
 
+// run our DB connection. Connection is set in our config folder
 connectDB()
 
 const app = express()
@@ -17,21 +18,6 @@ const app = express()
 // middleware to handle req, res data
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-
-const limiter = rateLimit({
-    windowMs: 1000,
-    max: 1,
-    message: "too many requests - 1 request per Second limit"
-})
-
-const sessionLimiter = rateLimit({
-    // 1min x 60 = 1hr 
-    // 1hr x 24 = 1 earth rotation
-    windowMs: (60000 * 60) * 24, 
-    max: 1000,
-    message: "session limit reached"
-})
-
 
 
 
