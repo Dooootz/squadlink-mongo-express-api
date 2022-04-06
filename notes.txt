@@ -4,11 +4,16 @@
 User APIS are fully functional 
 Rate limiting fully functional 
 
-Logging is partially functional -- 
+Logging is partially functional -- get the feature working as intended 
+Add id & other cols from the MC 
 
 Need todo 
->domain lock & whitelist origins 
+
+>domain lock & whitelist origins CORS 
 >joi validation
+
+reassess upon completion
+
 
 
 
