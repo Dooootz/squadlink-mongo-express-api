@@ -12,6 +12,10 @@ Need todo
 >domain lock & whitelist origins CORS 
 >joi validation
 
+work on getting cors functionality 
+any additional middleware needed?
+study joi validation & implementation using express - mongo 
+
 reassess upon completion
 
 
@@ -53,6 +57,6 @@ write a test script that interacts with the web service to test all the known GE
 
 
 userStatsSchema is configured
-    couild simplify the db as single columns (don't list ALL legends or ALL attributes) -- 
+    could simplify the db as single columns (don't list ALL legends or ALL attributes) -- 
     instead, store the values in a a button & push that value to the table :: validation for this feature should be relatively easy
 
