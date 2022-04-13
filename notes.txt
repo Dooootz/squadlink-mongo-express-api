@@ -21,11 +21,6 @@ reassess upon completion
 
 
 
-
-
-
-
-
 === === === === === === === === === === === === === === ===
 @@ CODE COMMENTS 
 
@@ -46,13 +41,6 @@ write a test script that interacts with the web service to test all the known GE
 
 
 
-
-
-
-
-
-
-
 >logging feature -- log IP, session, username, usertype, timestamp, action || CRUD action  
 
 
@@ -60,3 +48,21 @@ userStatsSchema is configured
     could simplify the db as single columns (don't list ALL legends or ALL attributes) -- 
     instead, store the values in a a button & push that value to the table :: validation for this feature should be relatively easy
 
+
+
+
+
+
+
+
+=== === === === === === === === === === === === === === ===
+Log middleware
+=== === === === === === === === === === === === === === ===
+
+    // Get request data
+    let loggedData = {
+        timeStamp: new Date(),
+        reqMethod: req.method,
+        reqPath: req.path,
+        userIP: req.ip,
+    }
